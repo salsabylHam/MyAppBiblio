@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    stages {
+        stage ("Clean up") {
+            steps {
+                deleteDir()
+            }
+        }
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/salsabylHam/BiblioApp.git'
+            }
+        }
+        stage ("Generate docker image") {
+            steps {
+                sh "docker build -t salsabilhamraoui510802/biblioapp:1.0.${env.BUILD_NUMBER} ."
+            }
+        }
+        stage ("Push docker image") {
+            steps {
+                sh "docker push salsabilhamraoui510802/biblioapp:1.0.${env.BUILD_NUMBER}"
+            }
+        }
+    }
+}
