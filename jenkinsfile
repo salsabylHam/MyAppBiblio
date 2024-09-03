@@ -1,24 +1,63 @@
 pipeline {
     agent any
+    environment {
+        GITHUB_TOKEN = credentials('github-token')
+    }
     stages {
-        stage ("Clean up") {
+        stage("Clean up") {
             steps {
                 deleteDir()
             }
         }
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/salsabylHam/BiblioApp.git'
+                git url: 'https://github.com/salsabylHam/MyAppBiblio.git'
             }
         }
-        stage ("Generate docker image") {
+        stage("Generate docker image") {
             steps {
                 sh "docker build -t salsabilhamraoui510802/biblioapp:1.0.${env.BUILD_NUMBER} ."
             }
         }
-        stage ("Push docker image") {
+        stage("Push docker image") {
             steps {
                 sh "docker push salsabilhamraoui510802/biblioapp:1.0.${env.BUILD_NUMBER}"
+            }
+        }
+        stage("Clone gitops repo") {
+            steps {
+                sh "git clone https://github.com/salsabylHam/argocdbiblioApp.git"
+            }
+        }
+        stage("Verify Cloned Repo") {
+            steps {
+                dir('argocdbiblioApp') {
+                    sh 'ls -R'
+                }
+            }
+        }
+        stage("Change image tag") {
+            steps {
+                dir('argocdbiblioApp/biblio-app') {
+                    script {
+                        def deployment = readFile('biblio-depoly.yml') // Nom du fichier corrigé
+                        def updatedDeployment = deployment.replaceAll(/salsabilhamraoui510802\/biblioapp:\s*[\w.-]+/, "salsabilhamraoui510802/biblioapp:1.0.${env.BUILD_NUMBER}")
+                        writeFile file: 'biblio-depoly.yml', text: updatedDeployment // Nom du fichier corrigé
+                    }
+                }
+            }
+        }
+        stage("Commit changes") {
+            steps {
+                dir('argocdbiblioApp/biblio-app') {
+                    script {
+                        sh 'git config user.email "jenkins@agent.com"'
+                        sh 'git config user.name "jenkins-admin"'
+                        sh 'git add biblio-depoly.yml' // Nom du fichier corrigé
+                        sh 'git commit -m "updated image tag"'
+                        sh 'git push https://salsabylHam:${GITHUB_TOKEN}@github.com/salsabylHam/argocdbiblioApp.git main'
+                    }
+                }
             }
         }
     }
