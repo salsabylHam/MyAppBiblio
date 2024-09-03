@@ -1,0 +1,48 @@
+/* General styling for the header */
+header {
+    padding: 10px 0;
+}
+
+/* Styling for the navbar container */
+.navbar-collapse {
+    justify-content: center; /* Center the navigation items */
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Styling for the navigation items */
+.nav-item {
+    margin: 0 10px; /* Space between nav items */
+}
+
+.nav-item .nav-link {
+    color: #fff; /* White text color */
+    font-size: 16px;
+    text-transform: uppercase; /* Capitalize text */
+    transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+.nav-item .nav-link:hover {
+    color: #ffc107; /* Change color on hover */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Active state styling */
+.nav-item.active .nav-link {
+    color: #ffc107; /* Highlight active link */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        flex-direction: column; /* Stack items vertically on small screens */
+    }
+    
+    .nav-item {
+        margin: 5px 0; /* Adjust margin for small screens */
+    }
+}
