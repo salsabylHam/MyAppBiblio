@@ -16,6 +16,11 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { AtomicComponent } from './atomic/atomic.component';
+import { BecomingComponent } from './becoming/becoming.component';
+import { BookthiefComponent } from './bookthief/bookthief.component';
+import { GeorgeComponent } from './george/george.component';
+import { HarryPotterComponent } from './harry-potter/harry-potter.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,12 @@ import { NotfoundComponent } from './notfound/notfound.component';
     LoginComponent,
     RegisterComponent,
     PrivacyComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    AtomicComponent,
+    BecomingComponent,
+    BookthiefComponent,
+    GeorgeComponent,
+    HarryPotterComponent
   ],
   imports: [
     BrowserModule,

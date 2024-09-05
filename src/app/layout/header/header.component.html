@@ -5,16 +5,16 @@
       <div class="col-12">
         <nav class="navbar navbar-expand-lg navbar-light p-0">
           <!-- logo -->
-          <a class="navbar-brand font-weight-bold mb-0" href="index-2.html" title="Qurno">
-            <img class="img-fluid" width="160" height="50" src="assets/assets/images/logo.png" alt="Qurno">
+          <a class="navbar-brand font-weight-bold mb-0" href="index-2.html" title="Qurno" style="font-size: 16px;">
+            <img class="img-fluid" width="220" height="80" src="assets/assets/images/logo.png" alt="Maktebti.tn">
           </a>
 
-          <button class="search-toggle d-inline-block d-lg-none ms-auto me-1 me-sm-3" data-toggle="search" aria-label="Search Toggle">
+          <button class="search-toggle d-inline-block d-lg-none ms-auto me-1 me-sm-3" data-toggle="search" aria-label="Search Toggle" style="font-size: 14px;">
             <span>Search</span>
             <svg width="22" height="22" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 15.5L19 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 11C5 14.3137 7.68629 17 11 17C12.6597 17 14.1621 16.3261 15.2483 15.237C16.3308 14.1517 17 12.654 17 11C17 7.68629 14.3137 5 11 5C7.68629 5 5 7.68629 5 11Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
 
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navHeader" aria-controls="navHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navHeader" aria-controls="navHeader" aria-expanded="false" aria-label="Toggle navigation" style="font-size: 14px;">
             <i class="ti ti-menu-2 d-inline"></i>
             <i class="ti ti-x d-none"></i>
           </button>
@@ -22,31 +22,27 @@
           <div class="collapse navbar-collapse" id="navHeader">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item active">
-                <a class="nav-link" [routerLink]="['/home']">Home</a>
+                <a class="nav-link" [routerLink]="['/home']" style="font-size: 14px;">Accueil</a>
               </li>
               <li class="nav-item @@about">
-                <a class="nav-link" [routerLink]="['/about']">About</a>
+                <a class="nav-link" [routerLink]="['/about']" style="font-size: 14px;">À propos</a>
               </li>
-          
               <li class="nav-item @@archive">
-                <a class="nav-link" [routerLink]="['/privacy']">Privacy</a>
+                <a class="nav-link" [routerLink]="['/privacy']" style="font-size: 14px;">Confidentialité</a>
               </li>
-              <li class="nav-item @@contact" >
-                <a class="nav-link" [routerLink]="['/author','authorId']">My Account</a>
+              <li class="nav-item @@contact">
+                <a class="nav-link" [routerLink]="['/author','authorId']" style="font-size: 14px;">Auteur</a>
               </li>
-
               <li class="nav-item @@archive">
-                <a class="nav-link" [routerLink]="['/login']">Login</a>
+                <a class="nav-link" [routerLink]="['/create']" style="font-size: 14px;">Ajouter Livre</a>
               </li>
-
               <li class="nav-item @@archive">
-                <a class="nav-link" [routerLink]="['/register']">Register</a>
+                <a class="nav-link" [routerLink]="['/login']" style="font-size: 14px;">Connexion</a>
               </li>
-        
+              <li class="nav-item @@archive">
+                <a class="nav-link" [routerLink]="['/register']" style="font-size: 14px;">Inscription</a>
+              </li>
             </ul>
-            
-    
-            
           </div>
         </nav>
       </div>
